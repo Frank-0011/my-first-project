@@ -1,0 +1,14 @@
+#تابع نشون دادن مصرف رم و سیپیو
+
+#def ussage(cpupersent, rampersent, bars=10):
+
+    cpu_bars = "|" * int((cpupersent / 100) * bars) + "-" * (bars - int((cpupersent / 100) * bars))
+
+    ram_bars = "|" * int((rampersent / 100) * bars) + "-" * (bars - int((rampersent / 100) * bars))
+
+    print(f"\rCPU Usage: |{cpu_bars}| {cpupersent:.2f}%   RAM Usage: |{ram_bars}| {rampersent:.2f}%", end="")
+    time.sleep(0.5)
+
+
+#while True:
+    ussage(psutil.cpu_percent(), psutil.virtual_memory().percent)
